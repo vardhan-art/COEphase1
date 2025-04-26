@@ -1,0 +1,12 @@
+import mysql.connector
+conn = mysql.connector.connect(host="localhost",user="root",password="vardhan",database="ACE")
+c = conn.cursor()
+sid=int(input("enter your sid"))
+sname=input("enter your name")
+place=input("enter your place")
+marks=int(input("Enter your marks "))
+c.execute("INSERT INTO students (sid, sname, city, marks) VALUES (%s, %s, %s, %s)", (sid, sname, place, marks))
+print("Done")
+conn.commit()
+c.close()
+conn.close()
